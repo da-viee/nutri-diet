@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri-Diet-Wizard - Initial Survey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: gradient-animation 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 font-sans">
+
+    <!-- Animated Gradient Background -->
+    <div class="fixed inset-0 z-0 bg-gradient-to-br from-purple-600 via-blue-500 to-green-400 animated-gradient"></div>
+
+    <!-- Main Content Container -->
+    <div class="relative min-h-screen flex items-center justify-center z-10 p-4">
+        
+        <!-- Glassmorphism Survey Card -->
+        <div class="w-full max-w-2xl p-8 space-y-6 bg-black/20 backdrop-blur-xl rounded-3xl shadow-2xl">
+            
+            <!-- Header -->
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-white">Tell Us About Yourself</h2>
+                <p class="text-gray-200 mt-2">This information will help us personalize your diet plan.</p>
+            </div>
+
+            <!-- Survey Form -->
+            <form id="user-survey-form" class="space-y-4">
+                
+                <!-- START: New Survey Fields -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
+                    
+                    <!-- Region -->
+                    <div>
+                        <label for="region" class="text-sm font-medium">What is your region?</label>
+                        <select id="region" required class="w-full mt-2 px-4 py-3 bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="" disabled selected>Select your region</option>
+                            <option value="North">North</option>
+                            <option value="South">South</option>
+                            <option value="East">East</option>
+                            <option value="West">West</option>
+                        </select>
+                    </div>
+
+                    <!-- Activity Level -->
+                    <div>
+                        <label for="activity-level" class="text-sm font-medium">Describe your activity level:</label>
+                        <select id="activity-level" required class="w-full mt-2 px-4 py-3 bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="" disabled selected>Select activity level</option>
+                            <option value="Sedentary">Sedentary (little to no exercise)</option>
+                            <option value="Lightly Active">Lightly Active (light exercise/sports 1-3 days/week)</option>
+                            <option value="Moderately Active">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+                            <option value="Very Active">Very Active (hard exercise/sports 6-7 days a week)</option>
+                        </select>
+                    </div>
+
+                    <!-- Sleep Hours -->
+                    <div>
+                        <label for="sleep-hours" class="text-sm font-medium">How many hours do you sleep per night?</label>
+                        <input type="number" id="sleep-hours" required placeholder="e.g., 7" class="w-full mt-2 px-4 py-3 bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- Medical History -->
+                    <div>
+                        <label for="medical-history" class="text-sm font-medium">Any medical history? (e.g., Ulcer, Diabetes)</label>
+                        <input type="text" id="medical-history" required placeholder="Type 'None' if not applicable" class="w-full mt-2 px-4 py-3 bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <!-- START: New Dynamic Food Selector -->
+                    <div class="md:col-span-2">
+                        <label class="text-sm font-medium">Select Available Foods</label>
+                        <div class="relative mt-2">
+                            <!-- This button will open the dropdown -->
+                            <button type="button" id="food-select-button" class="w-full px-4 py-3 text-left bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <span class="text-gray-400">Click to select foods...</span>
+                            </button>
+                            
+                            <!-- This is the dropdown panel, initially hidden -->
+                            <div id="food-options-dropdown" class="hidden absolute w-full mt-2 p-4 bg-gray-800 border border-gray-600 rounded-xl z-20 max-h-60 overflow-y-auto">
+                                <!-- Food checkboxes will be generated here by JavaScript -->
+                                <div id="food-options-container" class="space-y-3">
+                                    <p class="text-gray-400">Please select a region first.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "Add Other" Textarea (initially hidden) -->
+                    <div id="other-food-container" class="hidden md:col-span-2">
+                        <label for="other-food-input" class="text-sm font-medium">Specify other available foods:</label>
+                        <textarea id="other-food-input" rows="2" placeholder="List other foods here, separated by commas" class="w-full mt-2 px-4 py-3 bg-black/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <!-- END: New Dynamic Food Selector -->
+
+                </div>
+                <!-- END: New Survey Fields -->
+
+                <!-- Submit Button -->
+                <button 
+                    type="button" 
+                    id="save-survey-button"
+                    class="w-full py-3 font-semibold text-white bg-white/10 border border-white/20 rounded-xl backdrop-blur-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors"
+                >
+                    Save & Continue
+                </button>
+            </form>
+
+        </div>
+    </div>
+    <script type="module" src="survey.js"></script>
+</body>
+</html>
