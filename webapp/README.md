@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NutriWise - Personalized Nutritional Guidance
+
+A culturally grounded, medically safe nutritional guidance PWA for underserved communities in Nigeria.
 
 ## Getting Started
 
@@ -16,21 +18,56 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To build the application for production:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Option 1: One-click deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/da-viee/nutri-diet&project-name=nutri-diet&repo=da-viee/nutri-diet)
 
-## Deploy on Vercel
+### Option 2: Manual deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Install the Vercel CLI:
+```bash
+npm i -g vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Run the deploy command from the project root:
+```bash
+vercel --prod
+```
+
+### Prerequisites for Deployment
+
+- Make sure you have Node.js installed (version 18 or newer recommended)
+- Ensure all dependencies are properly installed (`npm install`)
+- Verify the build works locally (`npm run build`)
+
+## Features
+
+- Culturally-aware nutrition guidance
+- Personalized meal planning
+- Local food database integration
+- Responsive design for mobile and desktop
+- PWA capabilities for offline access
+
+## Tech Stack
+
+- Next.js 16.2.6
+- React 19.2.4
+- Tailwind CSS
+- TypeScript
+- Supabase for data storage
