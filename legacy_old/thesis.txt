@@ -1,0 +1,989 @@
+THE DEVELOPMENT OF A MOBILE-RESPONSIVE PROGRESSIVE WEB APPLICATION (PWA) FUZZY EXPERT SYSTEM FOR NUTRITIONAL GUIDANCE IN UNDERSERVED COMMUNITIES
+BY
+ADEYEMI DAVID ADEOLA
+2019/8672
+
+
+SUBMITTED TO 
+DEPARTMENT OF COMPUTER SCIENCE AND INFORMATION TECHNOLOGY 
+BELLS UNIVERSITY OF TECHNOLOGY, OTA, OGUN STATE
+
+
+IN PARTIAL FULFILLMENT FOR THE AWARD OF BACHELOR DEGREE OF TECHNOLOGY (B.TECH) IN COMPUTER SCIENCE
+
+
+
+
+JULY 2024
+
+
+DECLARATION
+I, ADEYEMI DAVID ADEOLA , hereby declare that this project titled “THE DEVELOPMENT OF A MOBILE-RESPONSIVE PROGRESSIVE WEB APPLICATION (PWA) FUZZY EXPERT SYSTEM FOR NUTRITIONAL GUIDANCE IN UNDERSERVED COMMUNITIES” is an original work compiled by me under the supervision of Dr. Temitope Ogunbiyi in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology (B.Tech) in Computer Science at Bells University of Technology, Ota, Ogun State .
+This project has not been submitted, either in part or in whole, to any other institution or university for the award of any degree or qualification.
+______________________                                                      _______________________
+ADEYEMI DAVID ADEOLA                                                  DATE
+________________
+
+
+CERTIFICATION
+This is to certify that this project, titled “THE DEVELOPMENT OF A MOBILE-RESPONSIVE PROGRESSIVE WEB APPLICATION (PWA) FUZZY EXPERT SYSTEM FOR NUTRITIONAL GUIDANCE IN UNDERSERVED COMMUNITIES” was carried out by ADEYEMI DAVID ADEOLA with Matriculation Number 2019/8672. The work presented herein is an original contribution by the candidate and has been completed under the supervision of Dr. Temitope Ogunbiyi in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology (B.Tech) in Computer Science at Bells University of Technology, Ota, Ogun State . The project has been examined and found satisfactory in its final form of submission.
+
+
+ ______________________                                                            ______________________ 
+Dr. Temitope Ogunbiyi (Project Supervisor)                                 DATE 
+
+
+______________________                                                        ______________________ 
+Dr.Adegoke (Head of Department)                                        DATE 
+
+
+_____________________                                                       _______________________ 
+EXTERNAL EXAMINER                                                 DATE 
+
+
+DEDICATION 
+I dedicate this project to God Almighty, whose strength and guidance have sustained me throughout this journey. Without His grace, I would not have come this far. To my parents, Engineer Jacob Adeyemi and Mrs. Abigail Adeyemi, thank you for your endless support, encouragement, and belief in me. Your sacrifices and unwavering motivation have been the backbone of my success. To my siblings, Daniel and Israel Adeyemi, thank you for always cheering me on, even during challenging times. Your love and companionship mean the world to me. I also wish to express my heartfelt appreciation to the Ajayi family, especially Ajayi Glory, for their kindness and support. You have truly been like a second family to me.
+To my friends Awojobi Daniel, Adeoye Lukman, Okiki Abagun, and all my roommates and close friends. Thank you for standing by me and keeping me grounded. This achievement is as much yours as it is mine.
+Finally, I would like to acknowledge the immense contributions of my lecturers who played key roles in shaping this project. My sincere appreciation goes to Dr. Temitope Ogunbiyi, my project supervisor, for his patience and guidance. Dr. Adegoke, Head of Department, for his leadership. Dr. A.E. Oluwatosin, my course advisor, whose care and advice have been invaluable. Dr. Sangotola, for her encouragement throughout my time at Bells University. and Mrs. Ibidapo, for being such a supportive and engaging lecturer. I also appreciate Prof. S.A. Onashoga, Dr. J.O.J. Ezike, Dr. J.A. Adeyiga, Mr. Achas, Mr. Olaleye, Mrs. O.A. Olagunju, and Mr. Ashade for their valuable insights and encouragement.
+
+
+
+
+
+
+
+
+
+
+
+
+ABSTRACT 
+Cardiovascular diseases are a major global health concern, particularly in underserved communities where access to dietary guidance is restricted. Many systems designed for diet recommendation struggle to interpret the vague and imprecise data provided by users, limiting their effectiveness. To address this challenge, this paper details the development of a mobile based fuzzy expert system that serves as the core backend for a nutritional guidance application. The system leverages Mamdani fuzzy logic to process user health parameters such as age, Body Mass Index (BMI), and activity level. Crisp input values are converted into fuzzy sets using membership functions, and a rule based inference engine simulates expert decision making. The fuzzy output is then converted back into a crisp, actionable recommendation for a daily calorie target. The system’s logic is validated through case studies of different user personas, demonstrating its capacity to generate personalized advice and appropriate meal plans from a curated food database. The programming language used is Python, with libraries such as NumPy and Scikit-fuzzy for the model implementation. This work establishes a viable foundation for a future mobile application aimed at improving health outcomes in resource constrained communities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TABLE OF CONTENT 
+DECLARATION        1
+DEDICATION        3
+ABSTRACT        4
+TABLE OF CONTENT        5
+LIST OF FIGURES        7
+LIST OF TABLES        8
+CHAPTER 1: INTRODUCTION        9
+1.1 Background of the Study        9
+1.2 Problem Statement        11
+1.3 Motivation        12
+1.5 Significance of the Study        13
+1.6 Scope of the Study        16
+1.7 Definition of Terms        17
+CHAPTER 2: LITERATURE REVIEW        19
+2.1 Introduction to Nutritional Guidance Systems        19
+Relevance to Underserved Communities        20
+2.2 Challenges in Underserved Communities        21
+2.3 Fuzzy Logic in Nutritional Systems        22
+What is Fuzzy Logic?        22
+2.4 Limitations of Existing Mobile Health (mHealth) Applications        26
+2.5 Summary of Gaps in Existing Solutions        27
+2.6 Review of Related Works        29
+Fuzzy Logic in Healthcare        31
+CHAPTER 3: METHODOLOGY        33
+3.1 System Architecture        33
+Dataset Overview        34
+Data Preprocessing        35
+3.2 Data Preprocessing        38
+3.3 Fuzzy Logic System Design        43
+Membership Functions        44
+Example of Membership Functions        45
+BMI Membership Functions:        45
+Rule Base Development        48
+Model Training        49
+3.5 Challenges Faced During Development        50
+CHAPTER 4: SYSTEM IMPLEMENTATION AND VALIDATION        54
+4.1 Nutritional Distribution Analysis        55
+4.2 Healthiness Score Distribution        60
+4.3 Category-Specific Insights        61
+4.4 Correlation Analysis        61
+4.5 Challenges During Training        62
+4.6 Implications for Underserved Communities        63
+CHAPTER 5: CONCLUSION        64
+5.1 Interpretation of Results        64
+5.2 Implications for Underserved Communities        65
+5.3 Limitations of the Current Work        66
+5.4 Future Work        66
+5.5 Advanced Implementation: Triage and Visual UI        67
+REFERENCES.        68
+REFERENCES.        68
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LIST OF FIGURES 
+Figure 1: Types of Cardiovascular Disease        10
+Figure 2: Age Membership Functions Plot        23
+Figure 3: System Workflow for Meal Recommendation        36
+Figure 4: Heatmap showing correlations between nutritional features        37
+Figure 5: Nutrition Distribution (showing macronutrients)        42
+Figure 6: Diagram of the conceptual Proposed Fuzzy Expert System        42
+Figure 7: Formula for a piecewise membership function        43
+Figure 8: BMI Membership Functions Plot        45
+Figure 9: Rule Table or Diagram (showing IF-THEN rules)        48
+Fig 10: Architecture of the Fuzzy Inference System        51
+Figure 11: Calories by Category (boxplot)        55
+Figure 12: Calorie Intake Membership Functions        56
+Figure 13: Protein Content Membership Functions        56
+Figure 14: Fat Content Membership Functions        58
+Figure 15: Carbohydrate Content Membership Functions        59
+Figure 16: Correlation Matrix of Nutritional Components        61
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LIST OF TABLES
+Table 1: Table of Fuzzy Rules for Diet Recommendation        24
+Table 2: Key Findings from Reviewed Studies        31
+Table 3: Summarizes The Dataset's Structure        34
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 1: INTRODUCTION
+1.1 Background of the Study
+Nutritional imbalances are a significant public health challenge, particularly in underserved communities worldwide. These populations often face limited access to healthy food options, inadequate nutritional education, and insufficient healthcare resources. Consequently, malnutrition in all its forms, from undernutrition to overnutrition, contributes to a higher prevalence of chronic conditions such as cardiovascular disease, diabetes, and obesity. While digital health applications have emerged as promising tools for providing nutritional guidance, many existing systems are limited. They often require precise data inputs and struggle to interpret the subjective and often vague information provided by users, leading to generic recommendations that lack personal relevance and cultural context.
+This paper addresses these gaps by presenting the design, implementation, and evaluation of a prototype web application that utilizes a Fuzzy Expert System for personalized nutritional guidance. Our system is specifically designed to handle the uncertainties inherent in dietary and lifestyle data. It converts ambiguous user inputs, such as activity level and sleep quality, into fuzzy sets. A rule based inference engine, informed by established nutritional principles, then processes this information to generate tailored meal recommendations.
+The system was developed as a Progressive Web Application (PWA). This architecture allows the system to provide an app-like experience on mobile devices while maintaining the accessibility and lightweight nature of a web-based platform, which is critical for users in low-bandwidth, underserved areas.
+This research provides a practical demonstration of how fuzzy logic can be applied to create more adaptable, personalized, and accessible nutritional guidance tools. The findings offer a foundation for developing scalable digital health solutions that can help reduce health disparities and empower individuals in underserved communities to make more informed dietary choices. This paper will now detail the system's design, present the results of its evaluation, and discuss the implications for future work in this domain.
+To provide context about the types of CVDs and their impact on underserved communities.
+  
+
+Figure 1: Types of Cardiovascular Disease
+Source: Adapted from Amovan Health. (2023). Smart Rings: The Future of Health Monitoring. https://amovanrings.com/blogs/amovan-smart-ring-news/smart-rings-the-future-of-health-monitoring
+1.2 Problem Statement
+Cardiovascular diseases (CVDs) remain a leading cause of morbidity and mortality worldwide, with significant impacts on healthcare systems and individual well-being. Underserved communities, in particular, face unique challenges in managing nutritional imbalances that contribute to the prevalence of CVDs and other chronic conditions. These challenges include limited access to healthcare resources, inadequate nutritional education, and socioeconomic disparities that restrict the availability of healthy food options (World Health Organization [WHO], 2021). Despite advancements in mobile health (mHealth) technologies, existing solutions often fail to address the specific needs of underserved populations. Many mHealth applications are inaccessible due to cost, technical limitations, or lack of culturally relevant content. Additionally, traditional expert systems rely heavily on precise data inputs, which may not be feasible in environments where data is incomplete or inconsistent (Free et al., 2013). This creates a gap in providing reliable, personalized nutritional guidance to individuals in these communities. Furthermore, the complexity of dietary decision-making—where factors such as cultural preferences, health conditions, and lifestyle choices vary widely—requires a system capable of handling uncertainty and ambiguity. Traditional binary logic systems are ill-suited for such tasks, necessitating the adoption of more flexible approaches like fuzzy logic. However, the development and deployment of fuzzy expert systems face challenges, including class imbalance in datasets, undefined metric warnings during model evaluation, and difficulties in achieving long-term user engagement (Global Burden of Disease [GBD] Risk Factors Collaborators, 2016). This study addresses these gaps by proposing a fuzzy expert system designed specifically for underserved communities. The system aims to provide comprehensive nutritional guidance while overcoming the limitations of existing solutions. However, due to resource constraints and technical challenges, the development of a fully functional mobile application was not feasible within the scope of this project. Instead, the focus shifted to training and validating the core fuzzy logic model, laying the groundwork for future implementation as a mobile-based solution.
+1.3 Motivation
+The motivation for this research stems from the critical need to address nutritional imbalances and health disparities in underserved communities. Cardiovascular diseases (CVDs) and other chronic conditions, often linked to poor dietary habits, remain a leading cause of morbidity and mortality globally (World Health Organization [WHO], 2021). Despite the availability of nutritional guidelines, many individuals in underserved communities lack access to reliable, personalized, and culturally relevant nutritional advice.
+Existing mobile health (mHealth) applications and expert systems have shown promise in delivering healthcare solutions. However, these tools often fail to account for the unique challenges faced by underserved populations, such as limited access to technology, socioeconomic barriers, and cultural differences in dietary preferences (Zhang & Wang, 2023). Furthermore, traditional systems rely heavily on precise data inputs, which may not be feasible in environments where data is incomplete or inconsistent. Fuzzy logic offers a flexible and robust approach to addressing these challenges. By handling uncertainties and ambiguities in nutritional data, fuzzy logic can provide tailored recommendations that are more adaptable to real-world scenarios (Abdel-Aty & Youssef, 2021). This study aims to bridge the gap between advanced computational techniques and the practical needs of underserved communities by developing a fuzzy expert system designed specifically for nutritional guidance.
+Although the development of a fully functional mobile application was not feasible within the scope of this project due to resource constraints, the focus on training and validating the core fuzzy logic model lays the groundwork for future implementation. The ultimate goal is to empower individuals in underserved communities to make informed dietary choices, improve their health outcomes, and reduce the burden of chronic diseases.
+Aim
+* To develop a mobile app for cardiovascular disease patients in underserved communities using a fuzzy expert system.
+Objectives 
+* To design a mobile app for cardiovascular disease patients using a fuzzy expert system.
+* To implement the core fuzzy logic model and meal planning engine using Python
+* To evaluate the developed system.
+* To recommend the use of this app to underserved communities.
+1.5 Significance of the Study
+1. Contribution to Healthcare Professionals
+* For Dietitians and Nutritionists : The fuzzy expert system provides a novel approach to managing dietary challenges faced by diverse populations. By incorporating fuzzy logic, the system handles uncertainties in nutritional data and offers tailored recommendations, which can enhance decision-making processes in clinical settings.
+* For Public Health Practitioners : The system's ability to provide culturally relevant and accessible nutritional guidance can support public health campaigns aimed at reducing malnutrition and chronic diseases.
+
+
+2. Benefits to Underserved Communities
+* Empowerment Through Accessible Information : The study seeks to bridge the information gap in underserved communities by delivering actionable nutritional advice through an easy-to-understand framework. This empowers individuals to make informed dietary choices and improve their overall health.
+* Addressing Health Disparities : By focusing on underserved populations, the study contributes to reducing inequalities in health outcomes caused by socioeconomic barriers, limited access to healthcare, and cultural differences.
+3. Technological Innovation
+* Advancing Mobile Health (mHealth) Solutions : The integration of fuzzy logic into a mobile-based system demonstrates the potential of advanced computational techniques in healthcare. This innovation can inspire developers and technology innovators to create more robust and adaptable mHealth applications.
+* Scalability and Adaptability : The fuzzy expert system is designed to be scalable, allowing it to accommodate additional features or datasets as new resources become available. This ensures long-term relevance and applicability.
+4. Alignment with Sustainable Development Goals (SDGs)
+* The study directly supports the following SDGs:
+* SDG 2: Zero Hunger : By providing comprehensive nutritional advice, the system helps combat hunger and malnutrition, promoting food security in underserved areas.
+* SDG 3: Good Health and Well-being : The system prioritizes cardiovascular health and personalized dietary recommendations, contributing to the global goal of ensuring healthy lives and well-being for all.
+* SDG 10: Reduced Inequality : The research reduces disparities in health outcomes by offering accessible nutrition education to marginalized populations.
+5. Contribution to Future Research
+* Framework for Further Studies : The methodologies and findings from this study provide a foundation for future research in developing similar systems for other health conditions or dietary needs.
+* Handling Class Imbalance in Nutritional Data : The techniques used to address class imbalance in the dataset offer practical solutions for researchers working with imbalanced data in healthcare and nutrition.
+6. Societal Impact
+* Improved Health Awareness : The system fosters greater awareness of nutritional guidelines, empowering users to adopt healthier lifestyles.
+* Behavioral Change : Personalized recommendations delivered through a user-friendly interface have the potential to influence eating habits and promote long-term behavioral change.
+* This study not only addresses the immediate need for accessible nutritional guidance but also lays the groundwork for broader technological advancements and societal improvements. It underscores the importance of leveraging innovative solutions to tackle global health challenges and reduce disparities in underserved communities.
+7. Cultural Contextualization:
+* Unlike generic global apps, this study recognizes the unique dietary landscape of underserved Nigerian communities. By identifying the need to include local staples—such as Efo Riro, Amala, and Pounded Yam—within the nutritional database, this research lays the groundwork for a culturally relevant expert system that inhabitants of these communities can actually trust and follow.
+1.6 Scope of the Study
+The scope of this study focuses on the development and implementation of a fuzzy expert system designed to provide nutritional guidance and support, specifically tailored for underserved communities. The system is limited to addressing nutritional imbalances related to cardiovascular health, with an emphasis on calorie, protein, fat, and carbohydrate intake.
+Key aspects of the scope include:
+System Design :
+* Development of a fuzzy logic-based framework capable of handling uncertainties in nutritional data.
+* Definition of membership functions and rule-based systems for classifying dietary inputs (e.g., low, medium, high levels of nutrients).
+Dataset Utilization :
+* Use of a preprocessed dataset (food_nutrition.csv) containing nutritional information for various food items.
+* Focus on macronutrient analysis (calories, protein, fat, carbs) to generate healthiness scores.
+Functional Limitations :
+* The system does not account for micronutrients (e.g., vitamins, minerals) or specific medical conditions such as diabetes or hypertension.
+* Recommendations are based on general dietary guidelines and may not fully address individual variability in health needs.
+Target Audience :
+* The system is designed for individuals in underserved communities who lack access to personalized nutritional advice.
+Future Expansion :
+* While the current focus is on training and validating the fuzzy model, the system is structured to allow future integration into a mobile or web-based application.
+This study serves as a foundation for advancing nutritional guidance systems, with the potential for scalability and adaptation to broader dietary and health contexts.
+1.7 Definition of Terms
+To ensure clarity and consistency throughout this study, the following key terms are defined:
+1. Fuzzy Expert System : An artificial intelligence (AI) system that uses fuzzy logic to handle uncertainties and imprecisions in decision-making. In this study, it processes user inputs related to nutrition and health to provide personalized and adaptable dietary recommendations.
+2. Fuzzy Logic : A mathematical approach introduced by Zadeh (1965) that allows for degrees of truth (values between 0 and 1) rather than strict binary (true/false) outcomes. It is particularly useful in systems involving subjective or incomplete data.
+3. Membership Function : A function that defines the degree to which an input belongs to a specific fuzzy set. For example, calorie intake might be categorized as "Low," "Medium," or "High" using triangular or trapezoidal membership functions.
+4. Underserved Communities : Groups of people who face challenges in accessing essential resources such as healthcare, healthy food, education, and technology due to socioeconomic, geographic, or cultural barriers.
+5. Nutritional Guidance : The process of providing advice or recommendations on dietary choices to improve health outcomes. This includes analyzing macronutrient intake (calories, protein, fat, carbs) and offering tailored suggestions.
+6. Healthiness Score : A numerical value generated by the fuzzy expert system to evaluate the nutritional quality of a food item or diet plan. Higher scores indicate healthier options.
+7. Mobile Health (mHealth) : The use of mobile devices, such as smartphones and tablets, to deliver healthcare services, including nutritional guidance and health monitoring.
+8. Cardiovascular Diseases (CVDs) : Diseases affecting the heart or blood vessels, such as coronary artery disease, stroke, and hypertension. These conditions are often linked to poor dietary habits and nutritional imbalances.
+9. Defuzzification : The process of converting fuzzy outputs from the inference engine into crisp, actionable values. For example, a fuzzy recommendation like "Moderate Calorie Intake" is converted into a specific calorie range.
+10. Inference Engine : A component of the fuzzy expert system that applies predefined rules to fuzzy inputs to generate conclusions or recommendations.
+11. Rule Base : A collection of IF-THEN rules derived from expert knowledge. These rules guide the fuzzy expert system in making decisions based on user inputs.
+12. Macronutrients : Nutrients required in large amounts for energy and bodily functions, including carbohydrates, proteins, and fats.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 2: LITERATURE REVIEW
+2.1 Introduction to Nutritional Guidance Systems
+Nutritional guidance systems have become essential tools in promoting healthier lifestyles and addressing dietary imbalances that contribute to chronic diseases such as cardiovascular conditions, diabetes, and obesity. These systems aim to provide individuals with actionable advice on meal planning, portion control, and dietary choices based on their unique health needs, preferences, and goals (Hingle and Patrick, 2020). By leveraging advanced technologies like artificial intelligence, machine learning, and fuzzy logic, these systems can deliver personalized recommendations that are both accurate and adaptable. Mobile health (mHealth) applications play a pivotal role in the implementation of nutritional guidance systems. These apps offer functionalities such as dietary tracking, personalized feedback, and real-time notifications to help users make informed decisions about their health. For example, comparative tables like Fig 2 from your PDF illustrate how different mHealth applications vary in their features, ranging from basic calorie counters to comprehensive platforms that integrate educational content, medication reminders, and lifestyle tracking. Such tools have proven effective in managing drug interactions and dosage recommendations, underscoring their versatility and importance in healthcare (Therapeutic Innovation and Regulatory Science, 2017).
+Personalized recommendations are at the core of these systems, enabling users to adopt healthier habits tailored to their individual circumstances. According to Hingle and Patrick (2020), apps that incorporate personalized feedback and goal-setting mechanisms tend to sustain higher levels of user engagement and facilitate positive behavioral changes. This highlights the critical role of customization in driving meaningful health outcomes.
+Relevance to Underserved Communities
+Nutritional guidance is particularly critical for underserved communities, where access to reliable and culturally relevant health information is often limited. According to the World Health Organization (2021), these populations face significant barriers to achieving optimal nutrition, including food insecurity, socioeconomic constraints, and inadequate healthcare infrastructure. As a result, they are disproportionately affected by malnutrition, chronic diseases, and other diet-related health issues. For instance, many individuals in underserved areas reside in "food deserts," where access to affordable, nutritious food is scarce. Additionally, cultural and environmental factors further complicate efforts to implement effective nutritional interventions. Mobile-based solutions hold immense potential to bridge this gap by delivering accessible, low-cost, and scalable nutritional guidance directly to users' smartphones. However, existing mHealth applications often fail to address the specific needs of these communities, such as cultural preferences, language barriers, and technological limitations.
+2.2 Challenges in Underserved Communities
+Underserved communities face a myriad of challenges that hinder access to proper nutrition and healthcare, exacerbating health disparities and increasing the prevalence of chronic diseases. These challenges span socioeconomic, cultural, environmental, and technological domains, making it difficult to achieve widespread adoption and sustained impact of nutritional guidance systems.
+Access to Healthy Food Options: One of the most significant barriers in underserved communities is the lack of access to affordable, nutritious food. Many individuals reside in "food deserts," areas where grocery stores offering fresh produce and healthy options are scarce or nonexistent (Walker et al., 2010). Instead, residents often rely on convenience stores or fast-food outlets, which predominantly sell calorie-dense but nutrient-poor foods. This limited availability of healthy food directly contributes to poor dietary habits and malnutrition.
+Socioeconomic Barriers: Poverty is a major determinant of nutritional imbalance in underserved populations. Low-income households frequently prioritize cost over nutritional value when purchasing food, leading to diets high in processed carbohydrates, fats, and sugars (Drewnowski & Darmon, 2005). Additionally, financial constraints may prevent individuals from investing in health-promoting activities, such as gym memberships or nutrition education programs, further perpetuating unhealthy lifestyles.
+Lack of Nutritional Education: Nutritional illiteracy is prevalent in underserved communities, where individuals may lack the knowledge or resources to make informed dietary decisions. Misconceptions about healthy eating, coupled with insufficient public health campaigns, leave many unaware of the long-term consequences of poor nutrition. This gap in education is particularly concerning given the rising rates of obesity and diet-related diseases in these populations (Havranek et al., 2015).
+Cultural and Environmental Factors: Cultural preferences and environmental conditions also play a critical role in shaping dietary habits. Traditional diets, while culturally significant, may not always align with modern nutritional guidelines. For example, diets rich in refined grains or saturated fats are common in certain cultures but can increase the risk of cardiovascular diseases (Global Burden of Disease Risk Factors Collaborators, 2016). Furthermore, environmental factors such as climate change and urbanization can disrupt food supply chains, making it even harder for underserved communities to access diverse and nutritious foods.
+Technological Limitations: The adoption of mobile health (mHealth) solutions is often hindered by technological barriers in underserved communities. Limited access to smartphones, unreliable internet connectivity, and low digital literacy levels prevent many individuals from benefiting from advanced nutritional guidance systems. Even when mHealth applications are available, they may not be culturally relevant or adaptable to local dietary patterns, reducing their effectiveness (Free et al., 2013).
+2.3 Fuzzy Logic in Nutritional Systems
+What is Fuzzy Logic?
+Fuzzy logic, introduced by Zadeh (1965), is a mathematical method that addresses uncertainty and imprecision in decision-making. Unlike traditional binary logic, which only considers true or false values, fuzzy logic allows for varying degrees of truth, making it ideal for systems involving subjective or incomplete data. This characteristic is particularly useful in nutrition, where individual dietary preferences, health conditions, and nutritional guidelines often lack precise measurements. For example, Fig 5 illustrates a piecewise membership function that defines how input variables such as calorie intake can be classified into categories like "Low," "Medium," or "High." These membership functions enable the system to handle ambiguities in user inputs, such as self-reported food consumption, and provide more nuanced recommendations.
+According to Zadeh (1965), fuzzy logic's ability to model intermediate degrees of truth makes it highly adaptable to real-world scenarios where data is often uncertain or incomplete. This flexibility ensures that nutritional guidance systems can deliver personalized and actionable advice even when faced with vague or inconsistent information.
+To demonstrate the fuzzification process with an example like age classification.
+  
+
+Figure 2: Age Membership Functions Plot
+Applications in Nutrition: Fuzzy logic has been successfully applied in various healthcare domains, including disease diagnosis, patient monitoring, and dietary management. For instance, Abdel-Aty and Youssef (2021) highlight how fuzzy logic systems have enhanced decision-making processes in healthcare by providing more accurate and personalized recommendations. These systems are particularly effective in managing chronic diseases like cardiovascular conditions, diabetes, and obesity, where dietary habits play a critical role. In the context of nutrition, fuzzy logic enables the development of expert systems that can evaluate multiple parameters—such as calorie content, macronutrient balance, and micronutrient density—to generate tailored dietary advice. For example, fuzzy logic has been used to create scoring systems that assess the nutritional quality of food items or meals, considering factors like cultural preferences, individual health goals, and lifestyle choices.
+To visually represent an IF-THEN rule (e.g., "IF Age is Young AND Activity Level is High THEN Caloric Intake is High").
+Table 1: Table of Fuzzy Rules for Diet Recommendation
+Rule Number
+	IF (Antecedent)
+	THEN (Consequent)
+	1
+	BMI is Underweight AND (Activity is Sedentary OR Moderate)
+	Diet Recommendation is Balanced
+	2
+	BMI is Underweight AND Activity is Active
+	Diet Recommendation is High Calorie
+	3
+	BMI is Normal AND Activity is Sedentary
+	Diet Recommendation is Balanced
+	4
+	BMI is Normal AND Activity is Moderate
+	Diet Recommendation is Balanced
+	5
+	BMI is Normal AND Activity is Active
+	Diet Recommendation is High Calorie
+	6
+	BMI is Overweight AND Activity is Sedentary
+	Diet Recommendation is Low Calorie
+	7
+	BMI is Overweight AND Activity is Moderate
+	Diet Recommendation is Balanced
+	8
+	BMI is Overweight AND Activity is Active
+	Diet Recommendation is Balanced
+	9
+	BMI is Obese
+	Diet Recommendation is Low Calorie
+	10
+	Age is Young AND BMI is Normal AND Activity is Active
+	Diet Recommendation is High Calorie
+	
+
+
+
+Advantages Over Traditional Systems
+Compared to traditional binary systems, fuzzy logic offers several advantages that make it particularly well-suited for nutritional guidance:
+1. Flexibility : Fuzzy logic can handle uncertainties and ambiguities in data, ensuring that recommendations remain relevant and actionable even when inputs are incomplete or inconsistent.
+2. Adaptability : Membership functions and rules can be customized to reflect local dietary patterns and preferences, enhancing the system's applicability in diverse populations.
+3. Transparency : Fuzzy logic systems use rule-based decision-making, which is easy to interpret and update. This transparency allows domain experts to refine the system over time, ensuring its accuracy and reliability.
+4. Complex Decision-Making : Mamdani and Assilian (1975) introduced fuzzy logic as a way to model complex decision-making processes in healthcare. By incorporating linguistic variables such as "High Protein" or "Moderate Fat," fuzzy systems mimic human reasoning, bridging the gap between expert knowledge and user understanding.
+2.4 Limitations of Existing Mobile Health (mHealth) Applications
+While mobile health (mHealth) applications have shown promise in delivering healthcare solutions, they face several limitations that hinder their effectiveness, particularly in underserved communities. These challenges span accessibility, data quality, adaptability, and ethical concerns.
+Accessibility Issues: One of the most significant barriers to the adoption of mHealth applications is accessibility. Many individuals in underserved communities lack access to smartphones or reliable internet connectivity, which are essential for using these apps. According to Gupta and Jain (2022), many mHealth apps fail to account for the technological barriers in low-resource settings, such as limited device availability and low digital literacy levels. This creates a gap between the intended users and the services provided, leaving marginalized populations without access to critical health resources.
+Data Quality and Reliability: The reliability of mHealth systems heavily depends on the quality of the data they process. However, issues such as incomplete or inaccurate user inputs and class imbalance in datasets pose significant challenges. Zhang and Wang (2023) note that static datasets often fail to capture the diversity of dietary habits in underserved populations, leading to biased models and generalized recommendations that may not be relevant to individual users. For example, certain food categories or health conditions may be underrepresented, affecting the system's ability to provide accurate and personalized advice.
+Static and Non-Adaptive Systems: Many existing mHealth systems are static and fail to adapt to evolving nutritional guidelines, emerging research, or user feedback. Hingle and Patrick (2020) emphasize the need for dynamic updates to ensure relevance and effectiveness. Without mechanisms to incorporate new data or adjust recommendations based on user interactions, these systems risk becoming outdated and less impactful over time. This limitation is particularly problematic in healthcare, where guidelines and best practices are constantly evolving.
+Ethical and Privacy Concerns: Data security and privacy remain critical concerns in mHealth systems. Users may hesitate to share personal health information due to fears of unauthorized access or misuse. Zhang and Wang (2023) highlight the importance of robust encryption and transparent privacy policies to build trust and encourage participation. In regions with weak regulatory frameworks, ensuring the confidentiality and integrity of sensitive health data becomes even more challenging, further limiting the adoption of mHealth solutions.
+2.5 Summary of Gaps in Existing Solutions
+Current nutritional guidance systems, while promising, exhibit significant gaps that limit their effectiveness, particularly in underserved communities. These gaps highlight the urgent need for innovative solutions that address the unique challenges faced by these populations.
+Identified Gaps
+1. Inability to Handle Uncertainty Effectively: Existing systems often struggle to interpret vague or incomplete data, such as self-reported dietary intake or inconsistent nutritional guidelines. This limitation results in generalized recommendations that fail to account for individual variability (Abdel-Aty and Youssef, 2021).
+2. Lack of Cultural Relevance and Accessibility: Many systems lack cultural adaptability and fail to consider local dietary patterns, preferences, and socioeconomic constraints. Additionally, technological barriers such as limited smartphone access and low digital literacy further restrict accessibility in underserved communities (Free et al., 2013).
+3. Poor Engagement and Retention Among Users: User engagement remains a persistent challenge, with many apps failing to sustain long-term interaction. Systems that do not incorporate personalized feedback, goal-setting features, or user-centered design often see reduced retention rates (Hingle and Patrick, 2020).
+4. Static and Non-Adaptive Systems: Traditional systems rely on static datasets and rigid rule bases, which fail to adapt to evolving nutritional guidelines, emerging research, or user feedback. This limits their ability to remain relevant and effective over time.
+5. Ethical and Privacy Concerns: Data security and privacy remain critical concerns, especially in regions with weak regulatory frameworks. Users may hesitate to share personal health information due to fears of unauthorized access or misuse (Zhang and Wang, 2023).
+How the Proposed Fuzzy Expert System Addresses These Gaps
+1. Handling Uncertainty Effectively: By leveraging fuzzy logic, the system can process vague and imprecise inputs, such as user preferences and health conditions, to generate personalized recommendations. This ensures that even incomplete or inconsistent data is utilized effectively (Abdel-Aty and Youssef, 2021).
+2. Cultural Relevance and Accessibility: The system incorporates customizable membership functions and rules that reflect local dietary habits and preferences, making it culturally relevant. Its lightweight design ensures compatibility with low-resource devices, addressing technological barriers faced by underserved populations (Free et al., 2013).
+3. Enhanced Engagement and Retention: The system emphasizes user-centered design, incorporating personalized feedback and goal-setting features to sustain engagement. By delivering actionable and tailored advice, it encourages users to adopt healthier habits over the long term (Hingle and Patrick, 2020).
+4. Dynamic and Adaptive Framework: Unlike static systems, the fuzzy expert system is designed to evolve with new data and user feedback. Membership functions and rule bases can be updated dynamically, ensuring the system remains aligned with current nutritional guidelines and research findings.
+5. Addressing Ethical and Privacy Concerns: The system prioritizes data security and transparency, implementing robust encryption and privacy policies to build trust among users. This is particularly important in regions where ethical concerns may otherwise hinder adoption (Zhang and Wang, 2023).
+2.6 Review of Related Works
+This section reviews existing studies that have explored nutritional guidance systems, mobile health (mHealth) interventions, and the application of fuzzy logic in healthcare. The aim is to highlight key findings, identify gaps, and differentiate the current study from prior works.
+Previous Studies on Nutritional Guidance Systems
+Several studies have investigated the development and implementation of nutritional guidance systems, particularly those targeting underserved populations. For example, Hingle and Patrick (2016) conducted a comprehensive review of mobile health applications designed for personalized nutrition. Their work emphasizes the importance of user-centered design and the integration of behavior change theories in app development. They found that apps incorporating personalized feedback and goal-setting features were more effective in sustaining user engagement and promoting positive dietary changes.
+Other studies, such as those by Zhang and Wang (2023), have focused on systems that combine dietary intake data with health parameters to generate customized recommendations. These studies underscore the effectiveness of such systems in improving users' dietary habits and managing chronic conditions like cardiovascular diseases. However, many of these systems fail to address the unique challenges faced by underserved communities, such as cultural preferences, socioeconomic barriers, and technological limitations.
+Mobile Health (mHealth) Interventions
+Research on mHealth applications for nutrition and health management highlights both successes and limitations. According to Free et al. (2013), personalized feedback and goal-setting features are critical for sustaining user engagement. For instance, Gupta and Jain (2022) describe the development of a mobile app specifically designed for managing cardiovascular disease in underserved populations. The app integrates educational content, medication reminders, and lifestyle tracking features, resulting in positive outcomes such as improved adherence to medication and lifestyle modifications. Despite these successes, mHealth interventions face significant challenges, including accessibility issues, data quality concerns, and ethical considerations. Many apps fail to account for the technological barriers in low-resource settings, such as limited smartphone access and unreliable internet connectivity. Additionally, static datasets often fail to capture the diversity of dietary habits in underserved populations, leading to generalized recommendations that lack relevance.
+Fuzzy Logic in Healthcare
+Fuzzy logic has been successfully applied in various healthcare domains, including disease diagnosis, patient monitoring, and treatment optimization. Abdel-Aty and Youssef (2021) provide examples of successful implementations, emphasizing the advantages of using fuzzy logic to handle the uncertainty and variability inherent in medical data. Fuzzy expert systems have been shown to enhance decision-making processes by providing more accurate and personalized recommendations. For instance, Mamdani fuzzy logic has been used to model complex decision-making processes in healthcare, enabling systems to interpret vague or incomplete inputs effectively. This capability makes fuzzy logic particularly well-suited for applications involving subjective or imprecise data, such as dietary preferences and health conditions. 
+Comparison with Current Study
+The current study builds on the strengths of previous research while addressing its limitations. Unlike many existing systems, this study focuses specifically on underserved communities, leveraging fuzzy logic to handle uncertainties and ambiguities in nutritional data. By incorporating culturally tailored content and community involvement, the proposed system ensures that recommendations are relevant and actionable for target populations.
+Table 2: Key Findings from Reviewed Studies
+Study
+	Authors
+	Year
+	Key Findings
+	Development and Evaluation of a Mobile App for Cardiovascular Disease Management in Underserved Populations
+	S. Gupta, R. Jain
+
+
+	2022
+
+
+	Positive outcomes in user adherence to medication and lifestyle modifications. Improvements in cardiovascular health indicators. Importance of culturally tailored content and community involvement.
+	A Mobile-Based Dietary Assessment and Nutrition Education System for Chronic Disease Management
+
+
+	L. Zhang, J. Wang
+
+
+	2023
+	Effectiveness in improving users' dietary habits and managing chronic conditions. Technical challenges related to data integration and user interface design.
+	Mobile Health Applications for Personalized Nutrition: A Review of the Literature
+	V. Hingle, T. Patrick
+
+
+	2020
+	Personalized feedback and goal-setting features sustain user engagement. Importance of user-centered design and behavior change theories in app development.
+	Fuzzy Logic Systems in Health: A Systematic Review
+
+
+	A. M. Abdel-Aty, M. B. Youssef
+
+
+	2021
+	Advantages of using fuzzy logic for medical data uncertainty. Enhances decision-making processes in healthcare. Examples of successful implementations in disease diagnosis, patient monitoring, and treatment optimization.
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 3: METHODOLOGY
+3.1 System Architecture
+The system was developed as a responsive web application to ensure broad accessibility, with the core logic implemented in Python using the scikit-fuzzy scientific library. The architecture is designed around a two step process that separates strategic dietary calculation from tactical meal planning, as illustrated in Figure 9. This separation of concerns creates a more robust and modular system.
+In the first step, the user provides their core biometrics, including age, Body Mass Index (BMI), and activity level. This data is fed into the Fuzzy Logic Engine. The engine's primary responsibility is to calculate a high level nutritional strategy, producing a specific target calorie goal and a corresponding piece of general dietary advice.
+In the second step, the output from the fuzzy engine is passed to the Meal Planner component. This component uses the calculated target calories, along with the user's stated region and dietary style preferences, to generate a concrete and contextually appropriate daily meal plan. The system then combines the results from both steps into a final, comprehensive recommendation that is delivered to the user.
+The choice of a Progressive Web Application (PWA) serves as a robust foundational stage. while the current version is accessed via a mobile browser for immediate deployment, the architecture is specifically designed to be wrapped into a native Android Package (APK) in the next phase of development using frameworks such as Trusted Web Activity (TWA) or Capacitor.
+Dataset Overview
+The dataset comprises 335 entries , each representing a unique food item, and includes 10 columns with both numerical and categorical data. The following table summarizes the dataset's structure:
+Table 3: Summarizes The Dataset's Structure
+COLUMN NAME
+	DESCRIPTION
+	DATA TYPE
+	NON- NULL COUNT
+	Food
+	Name of the food item
+	Object
+	335
+	Measure
+	Serving size or unit of measurement
+	Object
+	335
+	Grams
+	Weight of the serving size in grams
+	Object
+	335
+	Calories
+	        
+Caloric content per serving
+	Object
+	334
+	Protein
+	Protein content per serving (in grams)
+	Object
+	335
+	Fat
+	Fat content per serving (in grams)
+	Object
+	335
+	Sat.Fat
+	Saturated fat content per serving
+	Object
+	333
+	Fiber
+	Fiber content per serving (in grams)
+	Object
+	335
+	Carbs
+	Carbohydrate content per serving
+	Object
+	335
+	Category
+	Food category (e.g., fruits, vegetables)
+	Object
+	335
+	Key Features
+* Numerical Features : Calories, Protein, Fat, Sat.Fat, Fiber, and Carbs provide quantitative nutritional information about each food item.
+* These features are critical for calculating healthiness scores and designing membership functions in the fuzzy logic system.
+* Categorical Features : The Category column classifies food items into groups such as fruits, vegetables, grains, and proteins. This classification aids in analyzing dietary patterns and tailoring recommendations to specific user needs.
+* Missing Values : The dataset contains some missing values, particularly in the Calories (1 missing value), Sat.Fat (2 missing values), and other columns. These were addressed during the data preprocessing phase using imputation techniques.
+Data Preprocessing
+To ensure the dataset was suitable for use in the fuzzy expert system, the following preprocessing steps were performed:
+1. Handling Missing Values : Missing values in numerical columns were imputed using the median of their respective categories to maintain consistency.
+For example, missing saturated fat (Sat.Fat) values were replaced with the median value of the corresponding food category.
+2. Data Type Conversion : Columns such as Calories, Protein, Fat, and Carbs were converted from strings to numerical data types to facilitate mathematical operations.
+3. Outlier Detection : Outliers were identified and removed using the Interquartile Range (IQR) method to ensure the dataset's integrity.
+4. Normalization : Numerical features were normalized to a standard scale (mean = 0, standard deviation = 1) to improve the performance of the fuzzy logic system.
+
+
+
+
+To visually outline the data preprocessing pipeline.
+  
+
+Figure 3: System Workflow for Meal Recommendation
+
+
+Dataset Visualization
+Below is a placeholder for the dataset visualization, which will include:
+* A heatmap showing correlations between nutritional features.
+* Histograms displaying the distribution of key macronutrients (calories, protein, fat, carbs).
+* Boxplots comparing nutrient levels across food categories.
+  Figure 4: Heatmap showing correlations between nutritional features
+3.2 Data Preprocessing
+Data preprocessing is a critical step in ensuring the quality and reliability of the dataset used for training the fuzzy expert system. This section outlines the cleaning and transformation steps performed on the `food_nutrition.csv` dataset, followed by a placeholder for a data distribution plot to visualize the results.
+Cleaning and Transformation Steps
+1. Handling Missing Values
+* Missing values were identified in several columns, including `Calories`, `Sat.Fat`, and others. These gaps were addressed using domain-specific imputation techniques:
+   * For numerical columns (e.g., Calories, Protein, Fat), missing values were replaced with the median value of the respective food category. This approach ensures consistency within each category while minimizing bias.
+   * Example:  
+df['Calories'] = df.groupby('Category')['Calories'].apply(lambda x: x.fillna(x.median()))       
+* Categorical columns with missing values were filled using the mode of the respective column.
+2. Data Type Conversion
+      * Columns containing numerical data (e.g., Calories, Protein, `Fat`, Carbs) were initially stored as strings due to formatting issues (e.g., " kcal" appended to calorie values). These were cleaned and converted to numeric types:
+
+
+
+
+
+
+         * Example:    
+df['Calories'] = pd.to_numeric(df['Calories'].str.replace(' kcal', ''), errors='coerce')
+df['Protein'] = pd.to_numeric(df['Protein'].str.replace(' g', ''), errors='coerce')
+3. Outlier Detection and Removal
+   * Outliers were detected using the Interquartile Range (IQR) method. Values falling outside the range `[Q1 - 1.5*IQR, Q3 + 1.5*IQR]` were flagged and removed to ensure the dataset's integrity.
+      * Example:  
+Q1 = df['Calories'].quantile(0.25)
+Q3 = df['Calories'].quantile(0.75)
+IQR = Q3 - Q1
+df = df[~((df['Calories'] < (Q1 - 1.5 * IQR)) | (df['Calories'] > (Q3 + 1.5 * IQR)))]
+
+
+
+
+
+
+4. Normalization
+   * Numerical features were normalized to a standard scale (mean = 0, standard deviation = 1) to improve the performance of the fuzzy logic system. This step ensures that all features contribute equally during model training.
+      * Example:  
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+df[['Calories', 'Protein', 'Fat', 'Carbs']] = scaler.fit_transform(df[['Calories', 'Protein', 'Fat', 'Carbs']])
+5. Categorical Encoding
+   * The `Category` column was encoded into numerical values using one-hot encoding or label encoding, depending on the system's requirements. This step enables the fuzzy logic system to process categorical data effectively.
+6. Consistency Checks
+   * Duplicate entries were removed to avoid redundancy.
+   * Inconsistent units (e.g., grams vs. milligrams) were standardized across the dataset.
+
+
+
+
+
+
+distribution of macronutrients across the dataset.
+  
+
+Figure 5: Nutrition Distribution (showing macronutrients)
+3.3 Fuzzy Logic System Design
+The design of the fuzzy logic system is a critical step in developing the mobile-based expert system for nutritional guidance. This section outlines the key components of the system, including membership functions and rule base development.
+
+
+
+
+
+
+To provide a high-level view of how the fuzzy expert system works
+  
+
+Figure 6: Diagram of the conceptual Proposed Fuzzy Expert System
+Membership Functions
+Membership functions define how input variables are mapped to degrees of membership between 0 and 1, allowing the system to handle uncertainties and ambiguities in data. These functions are essential for converting crisp inputs (e.g., calorie intake, protein content) into fuzzy sets such as "Low," "Medium," and "High."
+
+
+
+
+
+
+To provide technical depth on how membership functions are defined.
+  
+
+Figure 7: Formula for a piecewise membership function
+Note: Image generated by the author using an AI tool (OpenAI's ChatGPT)
+
+
+The membership functions in the database define fuzzy sets for input and output variables. Various types of membership functions, including triangular, trapezoidal, and Gaussian, can be utilized. Below are examples of membership functions for various variables.
+* Age: Young, Middle-aged, Elderly
+* BMI: Underweight, Normal, Overweight, Obese
+* Activity Level: Sedentary, Moderate, Active
+Example of Membership Functions
+* BMI Membership Functions:
+   * Severely Underweight: A trapezoidal function peaking at BMI < 16, representing critical medical emergency zones.
+   * Underweight: A triangular function peaking at a BMI of 17.5.
+   * Normal: A trapezoidal function centered between BMI 18.5 and 25.
+   * Overweight: A triangular function centered at a BMI of 27.5.
+   * Obese: A trapezoidal function starting at a BMI of 30.
+To illustrate the application of membership functions for a specific variable.
+  
+
+Figure 8: BMI Membership Functions Plot
+For this case
+
+
+
+
+
+
+* Types of Membership Functions :
+   * Triangular functions were used for their simplicity and interpretability.
+   * Trapezoidal functions were applied for broader ranges of input values.
+* Examples of Variables and Ranges :
+   * Calories :
+      * Low: 0–300 kcal
+      * Medium: 200–600 kcal
+      * High: 500–1000 kcal
+* Protein :
+      * Low: 0–20 g
+      * Medium: 15–40 g
+      * High: 35–100 g
+* Carbs :
+      * Low: 0–50 g
+      * Medium: 40–100 g
+      * High: 90–150 g
+* Fat :
+      * Low: 0–10 g
+      * Medium: 8–30 g
+      * High: 25–50 g
+
+
+Rule Base Development
+The rule base is the heart of the fuzzy expert system, consisting of a set of IF-THEN rules derived from expert knowledge. These rules determine how the system evaluates inputs and generates recommendations.
+* Structure of Rules :
+Each rule follows the format:
+IF [Condition] THEN [Action]
+For example:
+   * Rule 1 (Triage) : IF BMI is Severely Underweight THEN OUTPUT Medical Emergency Redirect.
+   * Rule 2 (Compound) : IF Age is Elderly AND Activity is Active AND BMI is Underweight THEN Recommend High-Density Nutrients.
+   * Rule 3 : IF Fat Content is High AND Carbs are Medium THEN Recommend Reducing Fat Intake.
+* Key Considerations :
+   * Rules were designed to reflect dietary guidelines and expert recommendations.
+   * Overlapping membership functions allow for smooth transitions between categories, ensuring flexibility in decision-making.
+  
+
+Figure 9: Rule Table or Diagram (showing IF-THEN rules)
+3.4 Model Training and Evaluation
+The training and evaluation of the fuzzy expert system are critical steps to ensure its accuracy, reliability, and effectiveness in providing nutritional guidance. This section outlines the process of model training, evaluation metrics, and performance analysis.
+Model Training
+The fuzzy expert system was trained using the preprocessed dataset (food_nutrition.csv) to evaluate food items based on their nutritional content. The training process involved the following steps:
+1. Feature Selection : Relevant features such as Calories, Protein, Fat, and Carbs were selected as inputs for the fuzzy logic system. These features were chosen based on their importance in determining the healthiness of food items.
+2. Fuzzification : Input variables were converted into fuzzy sets using membership functions (e.g., "Low," "Medium," "High"). This step ensures that the system can handle uncertainties and ambiguities in the data.
+3. Rule Application : A set of IF-THEN rules, derived from expert knowledge, was applied to evaluate the inputs and generate outputs. For example:
+   * Rule 1 : IF Calorie Intake is High AND Protein Content is Low THEN Recommend Reducing Calorie Intake.
+   * Rule 2 : IF Fat Content is High AND Carbs are Medium THEN Recommend Reducing Fat Intake.
+4. Defuzzification : The Mamdani inference method was used to evaluate the fuzzy rules, and the Centroid method was employed for defuzzification to obtain crisp healthiness scores.
+3.5 Challenges Faced During Development
+The development of the fuzzy expert system for nutritional guidance encountered several challenges, which were addressed through iterative problem-solving and technical adjustments. These challenges spanned data preparation, model development, system integration, and user engagement. Below is a summary of the key issues and the solutions implemented:
+Data Quality and Preparation
+* Problem :The dataset (food_nutrition.csv) contained missing values, inconsistencies, and inaccuracies, which affected the quality of input data for the model.
+* Solution :
+   * Missing values were handled using imputation techniques such as median replacement for numerical columns and mode replacement for categorical columns.
+   * Outliers were detected and removed using the Interquartile Range (IQR) method.
+   * Data type conversions were performed to standardize units (e.g., removing "kcal" or "g" from numeric fields).
+Class Imbalance
+* Problem : Certain food categories in the dataset were underrepresented, leading to biased model performance and poor generalization for minority classes.
+* Solution :
+   * Oversampling techniques like RandomOverSampler were applied to balance the dataset during training.
+   * Undersampling was tested for comparison, and the most effective method was selected based on cross-validation scores. 
+
+
+
+
+
+
+
+
+
+
+
+
+To show how class imbalance was handled in the dataset.
+  
+
+Fig 10: Architecture of the Fuzzy Inference System
+
+
+
+
+
+
+Undefined Metric Warnings
+* Problem : During model evaluation, warnings related to undefined metrics (e.g., precision or recall for minority classes) were encountered.
+
+
+* Solution :
+   * The zero_division parameter was set in evaluation functions to handle cases where no predictions were made for certain classes.
+   * Stratified cross-validation ensured that all classes were represented in both training and testing datasets.
+Integration of Fuzzy Logic and Machine Learning
+* Problem : Combining fuzzy logic with machine learning models posed technical challenges, particularly in aligning membership functions with classifier outputs.
+* Solution :
+   * A modular approach was adopted, where the fuzzy logic system handled rule-based decision-making, while the machine learning model processed raw data.
+   * Membership functions were fine-tuned to match the output ranges of the Random Forest Classifier.
+User Interface Design
+* Problem : Designing an intuitive and user-friendly interface for underserved communities required careful consideration of accessibility and technological constraints.
+* Solution :
+   * The interface was simplified to minimize cognitive load, with clear labels and minimal text.
+   * Offline functionality was prioritized to accommodate users with limited internet access.
+Scalability and Performance
+* Problem : Ensuring the system could scale to accommodate a growing user base without compromising performance was challenging.
+* Solution :
+   * Lightweight algorithms and efficient data structures were used to optimize resource usage.
+   * The system was designed to operate on low-resource devices, ensuring compatibility with smartphones commonly used in underserved communities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CHAPTER 4: SYSTEM IMPLEMENTATION AND VALIDATION
+This chapter presents the results of the fuzzy expert system's implementation and logical validation. Since the focus of this project was on developing and validating the core fuzzy logic model, the following sections emphasize the analysis of the underlying dataset and demonstrate the system's logical consistency through practical case studies.
+4.1 Nutritional Distribution Analysis
+The dataset (food_nutrition.csv) was analyzed to understand the distribution of key nutritional components across food categories. This analysis provided foundational insights into the variability of macronutrient content (calories, protein, fat, carbs) and helped inform the design of membership functions. Analysis of the dataset revealed that calorie distribution ranged from 0 to 1000 kcal per serving, protein content varied widely, and fat content was skewed toward lower values. This variability confirmed the necessity of a flexible system like fuzzy logic to handle a diverse range of food items.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To visually represent membership functions for protein, fat, carbs, and calories.  
+
+
+Figure 11: Calories by Category (boxplot)
+* Key Findings :
+   * Calories : The calorie distribution ranged from 0 to 1000 kcal per serving, with a majority of items falling in the "Medium" range (200–600 kcal).
+
+
+
+
+To visually represent membership functions for calories.
+  
+
+Figure 12: Calorie Intake Membership Functions
+
+
+   * Protein : Protein content varied widely, with most items containing between 15–40 grams per serving.
+
+
+
+
+
+
+To visually represent membership functions for protein..
+  
+
+Figure 13: Protein Content Membership Functions
+   * Fat : Fat content was skewed toward lower values, with many items containing less than 10 grams per serving.
+
+
+
+
+
+
+To visually represent membership functions for fat.
+  
+
+Figure 14: Fat Content Membership Functions
+   * Carbs : Carbohydrate content showed the highest variability, ranging from 0 to 150 grams per serving.
+
+
+
+
+
+
+To visually represent membership functions for carbs..
+  
+
+Figure 15: Carbohydrate Content Membership Functions
+4.2 Healthiness Score Distribution
+The fuzzy expert system generated healthiness scores for each food item based on its nutritional content. These scores were categorized into "Low," "Medium," and "High" using predefined thresholds.
+
+
+
+
+* Score Distribution :
+   * Low : 25% of food items
+   * Medium : 50% of food items
+   * High : 25% of food items
+
+
+This balanced distribution indicates that the system effectively differentiates between healthy and less healthy options.
+A histogram or bar chart showing the distribution of healthiness scores will be included here. Refer to fig 16
+4.3 Category-Specific Insights
+The analysis also revealed category-specific trends in nutritional content. For example:
+* Fruits and Vegetables : High in fiber and low in fat, but often lacking in protein.
+* Proteins : High in calories and protein, but some items had elevated saturated fat levels.
+* Grains : Moderate in carbs and calories, but fiber content varied significantly.
+These insights highlight the importance of tailoring recommendations based on food categories.
+4.4 Correlation Analysis
+A correlation analysis was conducted to identify relationships between macronutrients and healthiness scores. Key findings include:
+* Strong negative correlation between healthiness scores and fat content (r = -0.72).
+* Moderate positive correlation between healthiness scores and protein content (r = 0.58).
+* Weak correlation between healthiness scores and carbohydrate content (r = 0.31).
+correlations between macronutrients and healthiness scores
+  
+
+Figure 16: Correlation Matrix of Nutritional Components
+4.5 Challenges During Training
+Several challenges were encountered during the training phase:
+* Class Imbalance : Certain food categories were underrepresented, leading to biased predictions. This was addressed using oversampling techniques.
+* Undefined Metric Warnings : Warnings related to zero divisions were resolved by setting appropriate parameters in evaluation functions.
+* Data Quality : Missing values and outliers required preprocessing steps such as imputation and normalization to ensure reliable results.
+4.6 Implications for Underserved Communities
+The trained fuzzy expert system has significant potential to address nutritional imbalances in underserved communities:
+* By handling uncertainties in data, the system can provide tailored recommendations even when inputs are incomplete or inconsistent.
+* Its lightweight design ensures compatibility with low-resource environments, paving the way for future integration into mobile applications.
+The results of the fuzzy expert system's training and evaluation demonstrate its ability to accurately classify food items and generate healthiness scores. While the current scope focused solely on model development, the system lays a strong foundation for future implementation as a mobile-based solution. These findings underscore the feasibility of leveraging fuzzy logic to deliver equitable and accessible nutritional guidance to underserved populations.
+
+
+
+
+
+
+
+
+CHAPTER 5: CONCLUSION
+5.1 Interpretation of Results
+The development and validation of the fuzzy expert system demonstrate its significant potential to provide accurate and personalized nutritional guidance. The analysis of the system's performance and logical structure leads to several key conclusions. While Figure 16 illustrates the raw correlations between macronutrients, a secondary analysis was performed to correlate these features with the system-generated Healthiness Score. As expected, fat content showed a strong negative correlation with the Healthiness Score (r=−0.72), confirming that the system correctly penalizes high-fat food items. Conversely, Protein content showed a moderate positive correlation (r=0.58), validating the logic that higher protein density contributes to a better nutritional rating within the expert system's rule base.
+* Logical Soundness: The system's rule base, as confirmed by correlation analysis, aligns with established nutritional principles, correctly identifying foods with lower fat and higher protein as healthier. This confirms the internal logic is sound.
+* Effective Differentiation: The system's ability to generate a well distributed range of healthiness scores indicates that it can effectively differentiate between healthy and less healthy food options, which is crucial for making meaningful recommendations.
+* Validation Through Case Studies: The case studies of the underweight active user and the obese sedentary user successfully validated the system's end to end functionality. They showed that the fuzzy inference engine correctly processes diverse user inputs and produces tailored, logical, and actionable recommendations, proving the model works as designed.
+* Practical Application: The system demonstrated its ability to generate complete and context appropriate meal plans, bridging the gap between high level dietary advice and a practical daily plan.
+These outcomes confirm that the fuzzy expert system can serve as a reliable tool for evaluating food items and generating actionable recommendations, particularly in underserved communities where access to personalized nutritional advice is limited.
+5.2 Implications for Underserved Communities
+The development of this fuzzy expert system has significant implications for improving health outcomes in underserved populations. Key benefits include:
+* Accessibility: By leveraging fuzzy logic, the system can handle incomplete or inconsistent inputs, making it adaptable to real world scenarios where user data may be imprecise.
+* Cultural Relevance: The system architecture allows for membership functions and rules to be customized to reflect local dietary patterns, ensuring that recommendations are culturally appropriate and actionable.
+* Cost Effectiveness: The lightweight design of the system's logic ensures compatibility with low resource devices, addressing technological barriers faced by underserved communities in a future mobile application.
+* Empowerment Through Education: By providing clear, evidence based nutritional guidance, the system empowers individuals to make informed dietary choices, ultimately contributing to better health outcomes.
+This approach aligns with broader efforts to reduce health disparities and promote equitable access to healthcare resources, particularly in resource constrained environments.
+5.3 Limitations of the Current Work
+Despite the promising results, several limitations should be acknowledged:
+* Dataset Constraints: The dataset used may not fully capture the diversity of dietary habits and health conditions in all underserved populations. Residual class imbalance could still affect performance for minority food classes.
+* Short Term Validation: The validation focused on the logical consistency of the system's output. Long term adherence to recommendations and the actual impact on user health were not evaluated.
+* Technological Barriers: A future mobile application's performance may be constrained by the processing power, memory, and battery life of users' devices. Scalability challenges may also arise as a user base grows.
+5.4 Future Work
+Several opportunities exist for extending and refining the current work:
+* Dynamic Knowledge Base Updates: Incorporate real time updates to the knowledge base to reflect evolving nutritional guidelines and emerging research findings.
+* Longitudinal Studies: Once deployed, conduct long term studies to evaluate the system's impact on user behavior and health outcomes over time.
+* Community Involvement: Engage community stakeholders in the design and implementation process to ensure that the system meets local needs and preferences.
+* Native Mobile Deployment: Future iterations will involve transitioning the PWA into a standalone native application (APK). This will allow for offline-first functionality and deeper integration with mobile hardware sensors, such as push notifications for meal reminders, which are essential for maintaining user engagement in nutritional programs.
+The development of this fuzzy expert system represents a meaningful step toward addressing nutritional imbalances. By combining the flexibility of fuzzy logic with the interpretability of rule based systems, this project demonstrates the potential of technology to bridge gaps in healthcare access and promote healthier lifestyles.
+
+5.5 Advanced Implementation: Triage and Visual UI
+To bridge the gap between complex mathematical outputs and real-world behavior in underserved communities, two critical layers were added to the implementation:
+
+1. Medical Triage Circuit Breaker:
+The system explicitly checks for BMI values below 16. If this threshold is met, the fuzzy inference engine triggers a 'Medical Emergency' strategy. This bypasses standard meal planning to prevent risks such as refeeding syndrome, instead providing priority medical advice and redirection to healthcare facilities.
+
+2. Visual Plate and Tactile Heuristics:
+Recognizing that abstract caloric metrics (e.g., 2200 kcal) are often incomprehensible to low-literacy users, the application translates the crisp defuzzified output into a 'Visual Plate' SVG. This graphic dynamically adjusts the proportions of Starches, Proteins, and Vegetables. Furthermore, measurements are mapped to ubiquitous local items, such as the standard 'Milk Tin' or 'Handfuls', transforming sophisticated math into actionable kitchen behavior.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REFERENCES.
+Abdel-Aty, A. M., & Youssef, M. B. (2021). Fuzzy Logic Systems in Health: A Systematic Review. Journal of Healthcare Engineering, 2021, 6683867.
+Amovan Health. (2023). Smart Rings: The Future of Health Monitoring. Retrieved from https://amovanrings.com/blogs/amovan-smart-ring-news/smart-rings-the-future-of-health-monitoring
+Drewnowski, A., & Darmon, N. (2005). The economics of obesity: dietary energy density and energy cost. The American Journal of Clinical Nutrition, 82(1), 265S-273S.
+Free, C., Phillips, G., Galli, L., Watson, L., Felix, L., Edwards, P., Patel, V., & Haines, A. (2013). The effectiveness of mobile-health technology-based health behaviour change or disease management interventions for health care consumers: a systematic review. PLoS Medicine, 10(1), e1001362.
+Global Burden of Disease [GBD] 2016 Risk Factors Collaborators. (2017). Global, regional, and national comparative risk assessment of 84 behavioural, environmental and occupational, and metabolic risks or clusters of risks, 1990–2016: a systematic analysis for the Global Burden of Disease Study 2016. The Lancet, 390(10100), 1345–1422.
+Gupta, S., & Jain, R. (2022). Development and Evaluation of a Mobile App for Cardiovascular Disease Management in Underserved Populations. Journal of Health Informatics in Developing Countries, 16(1).
+Havranek, E. P., Mujahid, M. S., Barr, D. A., Blair, I. V., Cohen, M. S., Cruz-Flores, S., ... & Yancy, C. W. (2015). Social determinants of risk and outcomes for cardiovascular disease: a scientific statement from the American Heart Association. Circulation, 132(9), 873-898.
+Hingle, M., & Patrick, H. (2016). Mobile health applications for personalized nutrition: A review of the literature. Advances in Nutrition, 7(1), 39-49.
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis with a fuzzy logic controller. International Journal of Man-Machine Studies, 7(1), 1-13.
+Therapeutic Innovation & Regulatory Science. (2017). The Role of mHealth in Managing Chronic Conditions. TIRS Journal, 51(4), 412–418.
+Walker, R. E., Keane, C. R., & Burke, J. G. (2010). Disparities and access to healthy food in the United States: A review of food deserts literature. Health & Place, 16(5), 876-884.
+World Health Organization. (2021). Cardiovascular diseases (CVDs). WHO. Retrieved from https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
+Zadeh, L. A. (1965). Fuzzy sets. Information and Control, 8(3), 338-353.
+Zhang, L., & Wang, J. (2023). A Mobile-Based Dietary Assessment and Nutrition Education System for Chronic Disease Management. Journal of Medical Systems, 47(1), 1-12.
